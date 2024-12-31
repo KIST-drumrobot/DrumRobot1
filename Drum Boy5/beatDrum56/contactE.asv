@@ -1,0 +1,35 @@
+function [d2x,dx,x,dxi,xi] = contactE(i,iC,iT,zeta,dxi,xi)
+global T
+wn = pi/(iC*T); % Natural frequency
+wd = wn*sqrt(1-zeta^2);
+
+% x = exp(-zeta*wn*t)*(xi*cos(wd*t) + ((dxi + zeta*wn*xi)/wd)*sin(wd*t));
+% dx = -zeta*wn*exp(-zeta*wn*t)*(xi*cos(wd*t) + ((dxi + zeta*wn*xi)/wd)*sin(wd*t)) + ...
+%     exp(-zeta*wn*t)*(-wd*xi*sin(wd*t) + (dxi + zeta*wn*xi)*cos(wd*t));
+% d2x = (-zeta*wn)^2*exp(-zeta*wn*t)*(xi*cos(wd*t) + ((dxi + zeta*wn*xi)/wd)*sin(wd*t)) + ...
+%     -zeta*wn*exp(-zeta*wn*t)*(-wd*xi*sin(wd*t) + (dxi + zeta*wn*xi)*cos(wd*t)) + ...
+%     -zeta*wn*exp(-zeta*wn*t)*(-wd*xi*sin(wd*t) + wd*((dxi + zeta*wn*xi)/wd)*cos(wd*t)) + ...
+%     exp(-zeta*wn*t)*(-wd^2*xi*cos(wd*t) + -wd*(dxi + zeta*wn*xi)*sin(wd*t));
+
+
+x = dxi/wd*sin(wd*i*T) + xi;
+dx = dxi*cos(wd*i*T);
+d2x = -dxi*wd*sin(wd*i*T);
+
+if t >= tC/2
+    if h == "R"
+        s = 1;
+    elseif h == "L"
+        s = -1;
+    end
+
+    d2xd(5) = s*hq*0.5*(pi/tC)^2*cos(pi/tC);
+    dxd(5) = s*hq*0.5*pi/(iSwing*T)*sin(pi/tC);
+    xd(5) = xi(5) + s*(xi(5)-xd(5))*0.5*(1-cos(pi/iT*i));
+end
+
+
+if i == iT
+    dxi = dx;
+    xi = x;
+end

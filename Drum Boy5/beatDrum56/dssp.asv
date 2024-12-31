@@ -1,0 +1,6 @@
+function d = dssp(iQ,iSW)
+% d = .6*min(iSW/iQ,1);
+s = 1;
+r = iSW/iQ;
+d = 0.6*(min(r,0.5) + s*max(0,r-0.5));
+d = 1/2*r^();
