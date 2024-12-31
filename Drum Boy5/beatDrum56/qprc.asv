@@ -1,0 +1,45 @@
+function [d2q,dq,q] = qprc(Kp,dxd,e,dq,q)
+global T dqlim qmax qmin qm
+%% Damped least squares
+% Cost function = 1/2*mu*(dqW - W^(1/2)*dq0)'*M(q)*(dqW - W^(1/2)*dq0) +
+% 1/2*(dxd - JW*dqW)'*(dxd - JW*dqW) + 1/2*nu*(dqW - W^(1/2)*dq)'*X*(dqW - W^(1/2)*dq)
+n = length(q);
+I = eye(n);
+dq1 = dq;
+mu = 0.2;   % Damping factor
+% Joint constraints
+W = jointCon(dq,q,'b');
+% Weighted Jacobian and Jacobian derivative
+JW = J(q)*W^(1/2);
+% % Psuedo inverse of Jacobian
+% Jp = M(q)^-1*JW'*(JW*M(q)^-1*JW')^-1;
+% % Psuedo inverse of Jacobian
+% Jp = (JW'*JW + mu*M(q))\JW'; 
+% % Null-space projection
+% N = eye(n) - Jp*JW;
+% Secondary task gradient
+dq0 = dampShoulder(dq,q);
+% S-matrix
+S = zeros(n,n);
+S(1,1) = 1;
+X = S'*S;
+%% quadratic programming
+nu = 9;
+H = mu*M(q)+JW'*JW+nu*X;
+f = -mu*M(q)'*W^(1/2)*dq0-JW'*(dxd+Kp*e)-nu*X*W^(1/2)*dq;
+
+A = [I;-I];
+b = .7*[dqlim(1:n);dqlim(1:n)];
+Aeq = [];
+beq = [];
+lb = [];
+ub = [];
+
+options = optimoptions('quadprog','Display','none');
+dqW = quadprog(H,f,A,b,Aeq,beq,lb,ub,[],options);
+%% minimization
+dqW = (JW'*JW + mu*M(q) + nu*X)\(JW'*(dxd+Kp*e) + mu*M(q)'*W^(1/2)*dq0 + nu*X'*W^(1/2)*dq1);
+%% result
+dq = W^(1/2)*dqW;
+d2q = (dq - dq1)/T;
+q = q + dq*T;

@@ -1,0 +1,45 @@
+function alpha = ratioLift2Hit(i,iSwing,d,dxT,xT,xi,a,h)
+% alpha = 2-d vector
+global T    
+gamma = .144;
+Salpha = 1-rem(a,1);
+WuT = dxT(d{1}(end));
+SuT = dxT(d{2}(end));
+if h == "R"
+    h = 1;
+elseif h == "L"
+    h = -1;
+end
+% suppose that "swing" curve is linear
+Wu1 = (xT(d{1}(end))-xi(d{1}(end)))/(iSwing*T)1;
+Su1 = (xT(d{2}(end))-xi(d{2}(end)))/(iSwing*T);
+Wr = Wu1/WuT;
+Sr = Su1/SuT;
+%% Find the stick's apex time ratio
+if h*Su1 >= 0
+    Sia = 1/(1+Salpha)*(1-Sr*Salpha);
+else
+    Sia = 1/(1+Salpha)*(1-Sr/Salpha);
+end
+%% Define the wrist's apex time ratio
+Wia = Sia-gamma;
+%% Find the proportional constant for wrist's lift velocity
+if Wu1 >= 0
+    Walpha = (1-Wia)/(Wr+Wia);
+else
+    c2 = Wia;
+    c1 = Wia-1;
+    c0 = Wr;
+    Walpha = 1/(2*c2)*(-c1+sqrt(c1^2-4*c2*c0));
+end
+if imag(Walpha) ~= 0 || real(Walpha) < 0
+    Walpha = 1;
+end
+alpha = [Walpha;Salpha];
+% if i == 1
+%     Sia
+%     Wia
+%     Wu1
+%     Wr
+%     Walpha
+% end

@@ -1,0 +1,7 @@
+function beta = liftCorrRatio(iSwing,xT,dxi,xi)
+% beta = 2-d vector
+% inputs = 2-d vector
+global T
+% suppose that "swing" curve is linear
+dx = (xT-xi)/(iSwing*T);
+beta = 1+dx./   dxi;

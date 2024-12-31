@@ -1,0 +1,39 @@
+function dw = limitJoint(q)
+% Cost function to be minimized:
+% w = 1/(2*n)*\sum_{i = 1}^n*(q(i)-qm(i))^2/((qmax(i)-qmin(i))^2);
+global qmin qmax qm
+n = length(q);
+
+
+%% Conventional
+k0 = 10;
+dw = zeros(n,1);
+for i = 1:n
+    dw(i) = 2*k0/n*(q(i)-qm(i))/((qmax(i)-qmin(i))^2);
+end
+%% Variation #1
+% K0 = k0*eye(n);
+% for i = 1:n 
+%     if q(i) - qm(i) < 0
+%         dw(i) = -1/n*(q(i)-qm(i))/((qmin(i)-qm(i))^2);
+%     else
+%         dw(i) = -1/n*(q(i)-qm(i))/((qmax(i)-qm(i))^2);
+%     end
+% end
+% dw = K0*dw;
+%% Variation #2
+s = 0.3;
+
+for i = 1:n
+    if q(i) >= qm(i)
+        qmax0 = qmax + s*(qm-qmax);
+
+        if q(i) >= qmax0(i)
+            (q)
+        else
+        end
+    else
+        qmin0 = qmin + s*(qm-qmin);
+    end
+end
+

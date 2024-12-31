@@ -1,0 +1,49 @@
+function x = minCOM(q)
+global mb mu ml mh mc
+global rbR_hat ruR_hat rlR_hat rbL_hat ruL_hat rlL_hat rn_hat rc_hat
+global rbc_hat rucR_hat rlcR_hat rhcR_hat rucL_hat rlcL_hat rhcL_hat rcc_hat
+%% Positions
+% Joint positions
+rbR = R1(q)*rbR_hat;
+reR = rbR + R4(q)*ruR_hat;
+rwR = reR + R6(q)*rlR_hat;
+rbL = R1(q)*rbL_hat;
+reL = rbL + R11(q)*ruL_hat;
+rwL = reL + R13(q)*rlL_hat;
+rn = R1(q)*rn_hat;
+% COM positions
+rb = R1(q)*rbc_hat;
+ruR = rbR + R4(q)*rucR_hat;
+rlR = reR + R6(q)*rlcR_hat;
+rhR = rwR + R8(q)*rhcR_hat;
+ruL = rbL + R11(q)*rucL_hat;
+rlL = reL + R13(q)*rlcL_hat;
+rhL = rwL + R15(q)*rhcL_hat;
+rc = rn + R17(q)*rcc_hat;
+% Total COM position
+xCOM = 1/((mu + ml + mh)*2 + mc)*(mu*ruR + ml*rlR + mh*rhR + mu*ruL + ml*rlL + mh*rhL + mc*rc);
+%% Jacobians
+% Joint positions
+drbRdq = m3times(dR1(q),rbR_hat);
+dreRdq = drbRdq + m3times(dR4(q),ruR_hat);
+drwRdq = dreRdq + m3times(dR6(q),rlR_hat);
+drbLdq = m3times(dR1(q),rbL_hat);
+dreLdq = drbLdq + m3times(dR11(q),ruL_hat);
+drwLdq = dreLdq + m3times(dR13(q),rlL_hat);
+drndq = m3times(dR1(q),rn_hat);
+% COM positions
+drbdq = m3times(dR1(q),rbc_hat);
+druRdq = drbRdq + m3times(dR4(q),rucR_hat);
+drlRdq = dreRdq + m3times(dR6(q),rlcR_hat);
+drhRdq = drwRdq + m3times(dR8(q),rhcR_hat);
+druLdq = drbLdq + m3times(dR11(q),rucL_hat);
+drlLdq = dreLdq + m3times(dR13(q),rlcL_hat);
+drhLdq = drwLdq + m3times(dR15(q),rhcL_hat);
+drcdq = drndq + m3times(dR17(q),rcc_hat);
+% Total COM position
+dxCOMdq = 1/((mu + ml + mh)*2 + mc)*(mu*druRdq + ml*drlRdq + mh*drhRdq + mu*druLdq + ml*drlLdq + mh*drhLdq + mc*drcdq);
+%% Null space joint velocities
+% w = -1/2*xCOM'*xCOM;
+X = [1 0 0;0 1 0;0 0 0];
+k0 = 100;
+x = -k0*dxCOMdq'*X*xCOM;

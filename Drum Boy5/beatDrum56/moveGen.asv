@@ -1,0 +1,12 @@
+function [X,d2xd,dxd,xd,d2xi,dxi,xi] = moveGen(i,iSwing,xT,d2xi,dxi,xi)
+global T
+if i == 1
+    d2xd = d2xi;
+    dxd = dxi;
+    xd = xi;
+end
+X = coeffB5(T*(iSwing-i+1),0,0,xT,d2xd,dxd,xd);
+[d2xd,dxd,xd] = pathGen(T*1,T*(iSwing-i+1),X);
+d2xi = d2xd;
+dxi = dxd;
+xi = xd;
