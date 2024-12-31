@@ -2,7 +2,7 @@
 
 
 ## Sheets creation - Action generation (simulation) - System execution 
-// 악보만들기-동작생성(시뮬레이션)-시스템 실행
+**악보만들기-동작생성(시뮬레이션)-시스템 실행**
 - 악보작성
 * 주의 사항: 너무 빠른 곡은 불가능, bpm고려하여 제일 빠른 연음으로 시간계산
 (드럼로봇의 한 손이 가장 끝에서 끝으로 드럼타격을 할 때 300msec 내외로 되는 곡만 가능)
@@ -20,7 +20,7 @@
 오픈 하이햇 하고 클로즈 하이햇 햇갈리니까 조심하기
 
 <img src="./image/image4.png" alt="SheetLaw">
-
+---
 <img src="./image/image5.png" alt="Playlist">
 
 
@@ -47,6 +47,7 @@ bpm = [시작마디 bpm];
 readme.txt파일에 각 버전별 파일 관리 되어있음
 
 <img src="./image/image6.png" alt="Main.m">
+
 플레이할 곡을 Main.m파일의 코드에 작성, 원하는 마디 수 값을 N에 넣어주어 수행가능. ( < N까지 수행)
 
 - 시뮬레이션 운영
@@ -77,14 +78,17 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 - 시뮬레이션 조작 법
 <img src="./image/image8.png" alt="Interface">
 
+
 - Simulation Analysis // 시뮬레이션 분석 법
 <img src="./image/image9.png" alt="Conflict1">
-
+---
 <img src="./image/image10.png" alt="Conflict2">
-
+---
 <img src="./image/image11.png" alt="Conflict3">
-
+---
 <img src="./image/image12.png" alt="SimulationAfter1">
+
+
 치는 세기는 알고리즘이 정해주는데 0.001로 대부분나옴
 이때 format long 한 후에 다시 실행시키면 소수점 자리 더 밑에까지 나오는데 1 밑에 있는 숫자가 damping 계수 같은거임 클수록 더 못들고 작을수록 더 들게 되는거 이를 확인
 
@@ -100,14 +104,20 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 # MOFFET Operation // 모펫 구동
 <img src="./image/image15.png" alt="Operation1">
+---
 <img src="./image/image16.png" alt="Operation2">
+---
 <img src="./image/image17.png" alt="Operation3">
+---
 <img src="./image/image18.png" alt="Operation4">
+---
 <img src="./image/image19.png" alt="Operation5">
+---
 <img src="./image/image20.png" alt="Operation6">
+---
 <img src="./image/image21.png" alt="Operation7">
 * 위 사진은 모펫 구동방법 27page에 해당됨
-
+---
 <img src="./image/image22.png" alt="Operation8">
 
 - 추가 사항
@@ -121,4 +131,3 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 ## License
 State the license under which the project is available. Example: This project is licensed under the MIT License - see the LICENSE.md file for details.
->>>>>>> feature : Reinitialized repository
