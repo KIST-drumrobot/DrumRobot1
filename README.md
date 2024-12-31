@@ -20,7 +20,9 @@
 오픈 하이햇 하고 클로즈 하이햇 햇갈리니까 조심하기
 
 <img src="./image/image4.png" alt="SheetLaw">
+
 ---
+
 <img src="./image/image5.png" alt="Playlist">
 
 
@@ -81,11 +83,17 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 - Simulation Analysis // 시뮬레이션 분석 법
 <img src="./image/image9.png" alt="Conflict1">
+
 ---
+
 <img src="./image/image10.png" alt="Conflict2">
+
 ---
+
 <img src="./image/image11.png" alt="Conflict3">
+
 ---
+
 <img src="./image/image12.png" alt="SimulationAfter1">
 
 
@@ -94,6 +102,9 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 - Simulation over // 시뮬레이션이 끝난 후
 <img src="./image/image13.png" alt="SimulationAfter2">
+
+---
+
 <img src="./image/image14.png" alt="SimulationAfter3">
 모펫 구동방법 27page는 **27page라고 아래에 적어둠
 
@@ -104,20 +115,35 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 # MOFFET Operation // 모펫 구동
 <img src="./image/image15.png" alt="Operation1">
+
 ---
+
 <img src="./image/image16.png" alt="Operation2">
+
 ---
+
 <img src="./image/image17.png" alt="Operation3">
+
 ---
+
 <img src="./image/image18.png" alt="Operation4">
+
 ---
+
 <img src="./image/image19.png" alt="Operation5">
+
 ---
+
 <img src="./image/image20.png" alt="Operation6">
+
 ---
+
 <img src="./image/image21.png" alt="Operation7">
+
 **위 사진이 모펫 구동방법 27page임**
+
 ---
+
 <img src="./image/image22.png" alt="Operation8">
 
 - 추가 사항
