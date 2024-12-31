@@ -116,7 +116,7 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 <img src="./image/image20.png" alt="Operation6">
 ---
 <img src="./image/image21.png" alt="Operation7">
-* 위 사진은 모펫 구동방법 27page에 해당됨
+**위 사진이 모펫 구동방법 27page임**
 ---
 <img src="./image/image22.png" alt="Operation8">
 
