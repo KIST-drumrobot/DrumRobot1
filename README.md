@@ -124,7 +124,7 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 ## Management & Maintenance // 운영 & 유지보수
 
 
-** MOFFET Operation // 모펫 구동 **
+**MOFFET Operation // 모펫 구동**
 
 ---
 
