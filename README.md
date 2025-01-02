@@ -25,6 +25,7 @@
 
 <img src="./image/image5.png" alt="Playlist">
 
+---
 
 - 악보 작성 시 체크사항
 
@@ -41,6 +42,9 @@ data = load(“작업중인파일.txt”)
 playlist.txt파일을 구동시키려면 -> playlist파일에 원하는 곡들 추가하는 방식으로 작동
 다음 사진과 같음
 <img src="./image/image5.png" alt="Playlist">
+
+---
+
 -형식-
 code = ‘내가만든.txt’; N = 총 마디 개수;
 bpm = [시작마디 bpm];
@@ -50,10 +54,14 @@ readme.txt파일에 각 버전별 파일 관리 되어있음
 
 <img src="./image/image6.png" alt="Main.m">
 
+---
+
 플레이할 곡을 Main.m파일의 코드에 작성, 원하는 마디 수 값을 N에 넣어주어 수행가능. ( < N까지 수행)
 
 - 시뮬레이션 운영
 <img src="./image/image7.png" alt="MainreRun.m">
+
+---
 
 - 시뮬레이션을 끊어서 돌리는 방법
 bSpan = [시작마디 종료마디] => 변경 후 시뮬레이션 방식
@@ -80,6 +88,7 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 - 시뮬레이션 조작 법
 <img src="./image/image8.png" alt="Interface">
 
+---
 
 - Simulation Analysis // 시뮬레이션 분석 법
 <img src="./image/image9.png" alt="Conflict1">
@@ -96,6 +105,7 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 <img src="./image/image12.png" alt="SimulationAfter1">
 
+---
 
 치는 세기는 알고리즘이 정해주는데 0.001로 대부분나옴
 이때 format long 한 후에 다시 실행시키면 소수점 자리 더 밑에까지 나오는데 1 밑에 있는 숫자가 damping 계수 같은거임 클수록 더 못들고 작을수록 더 들게 되는거 이를 확인
@@ -108,12 +118,16 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 <img src="./image/image14.png" alt="SimulationAfter3">
 모펫 구동방법 27page는 **27page라고 아래에 적어둠
 
-
+---
 
 
 ## Management & Maintenance // 운영 & 유지보수
 
-# MOFFET Operation // 모펫 구동
+
+** MOFFET Operation // 모펫 구동 **
+
+---
+
 <img src="./image/image15.png" alt="Operation1">
 
 ---
@@ -146,8 +160,11 @@ readme.txt 파일을 참고하면 버전별 차이점을 알 수있다.
 
 <img src="./image/image22.png" alt="Operation8">
 
+---
+
 - 추가 사항
 <img src="./image/image23.png" alt="Addition">
+---
 
 
 
